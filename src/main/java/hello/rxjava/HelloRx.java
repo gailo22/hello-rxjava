@@ -1,25 +1,12 @@
 package hello.rxjava;
 
-import rx.Observable;
-import rx.functions.Action1;
+import io.reactivex.Flowable;
 
 public class HelloRx {
 
 	public static void main(String[] args) {
-		
-		hello("John", "Jane", "Julee");
-		
-	}
-
-	public static void hello(String... names) {
-		Observable.from(names).subscribe(new Action1<String>() {
-
-			@Override
-			public void call(String s) {
-				System.out.println("Hello " + s + "!");
-			}
-
-		});
+		Flowable.just("Hello world")
+				.subscribe(System.out::println);
 	}
 
 }
